@@ -74,8 +74,9 @@ class _StoryPageState extends State<StoryPage> {
               Expanded(
                 flex: 2,
                 //TODO_: Step 26 - Use a Flutter Visibility Widget to wrap this FlatButton.
-                //TODO: Step 28 - Set the "visible" property of the Visibility Widget to equal the output from the buttonShouldBeVisible() method in the storyBrain.
+                //TODO_: Step 28 - Set the "visible" property of the Visibility Widget to equal the output from the buttonShouldBeVisible() method in the storyBrain.
                 child: Visibility(
+                  visible: storyBrain.buttonShouldBeVisible(),
                   child: FlatButton(
                     onPressed: () {
                       //TODO_: Step 24 - Run the app and try to figure out what code you need to add to this file to make the story change when you press on the choice buttons.
