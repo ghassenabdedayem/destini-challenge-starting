@@ -12,15 +12,13 @@ class Destini extends StatelessWidget {
   }
 }
 
-//TODO_: Step 9 - Create a new storyBrain object from the StoryBrain class.
-StoryBrain storyBrain = StoryBrain();
-
 class StoryPage extends StatefulWidget {
   _StoryPageState createState() => _StoryPageState();
 }
 
 class _StoryPageState extends State<StoryPage> {
-
+  //TODO_: Step 9 - Create a new storyBrain object from the StoryBrain class.
+  StoryBrain storyBrain = StoryBrain();
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +26,8 @@ class _StoryPageState extends State<StoryPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/background.png'),
-            fit: BoxFit.cover
-          ),
+              image: AssetImage('images/background.png'), fit: BoxFit.cover),
         ),
-
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
@@ -55,10 +50,11 @@ class _StoryPageState extends State<StoryPage> {
                 flex: 2,
                 child: FlatButton(
                   onPressed: () {
-
-                    //Choice 1 made by user.
-                    //TODO_: Step 18 - Call the nextStory() method from storyBrain and pass the number 1 as the choice made by the user.
-                    storyBrain.nextStory(1);
+                    setState(() {
+                      //Choice 1 made by user.
+                      //TODO_: Step 18 - Call the nextStory() method from storyBrain and pass the number 1 as the choice made by the user.
+                      storyBrain.nextStory(1);
+                    });
                   },
                   color: Colors.red,
                   child: Text(
@@ -79,9 +75,11 @@ class _StoryPageState extends State<StoryPage> {
                 //TODO: Step 28 - Set the "visible" property of the Visibility Widget to equal the output from the buttonShouldBeVisible() method in the storyBrain.
                 child: FlatButton(
                   onPressed: () {
-                    //Choice 2 made by user.
-                    //TODO_: Step 19 - Call the nextStory() method from storyBrain and pass the number 2 as the choice made by the user.
-                    storyBrain.nextStory(2);
+                    setState(() {
+                      //Choice 2 made by user.
+                      //TODO_: Step 19 - Call the nextStory() method from storyBrain and pass the number 2 as the choice made by the user.
+                      storyBrain.nextStory(2);
+                    });
                   },
                   color: Colors.blue,
                   child: Text(
