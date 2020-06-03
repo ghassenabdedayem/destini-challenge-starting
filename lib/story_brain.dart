@@ -59,7 +59,7 @@ class StoryBrain {
           storyNumber = 3;
         }
       }
-      break;
+      break; // c'est très important de mettre un break après chaque case. Pour le default à la fin ce n'est pas nécessaire car il est à la fin
       case 2: {
         if (choiceNumber == 1) {
           storyNumber = 5;
@@ -68,33 +68,29 @@ class StoryBrain {
         }
       }
       break;
-      case 3: {
-      }
-      break;
-      case 4: {
-      }
-      break;
-      case 5: {
-      }
-      break;
-      default: { //si aucun cas des cases n'est vérifié, faire le default, dans notre cas = rien
+//      TODO_: Step 22 - In nextStory() if the storyNumber is equal to 3 or 4 or 5, that means it's the end of the game and it should call a method called restart() that resets the storyNumber to 0.
+      default: { //si aucun cas des cases n'est vérifié, faire le default
+        restart();
       }
     }
   }
-
   //TODO_: Step 8 - Create a method called getStory() that returns the first storyTitle from _storyData.
   Story getStory() {
-    return _storyData[0];
+    return _storyData[storyNumber];
   }
 
   //TODO_: Step 11 - Create a method called getChoice1() that returns the text for the first choice1 from _storyData.
   String getChoice1() {
-    return _storyData[0].choice1;
+    return _storyData[storyNumber].choice1;
   }
 
   //TODO_: Step 12 - Create a method called getChoice2() that returns the text for the first choice2 from _storyData.
   String getChoice2() {
-    return _storyData[0].choice2;
+    return _storyData[storyNumber].choice2;
+  }
+
+  void restart() {
+    storyNumber = 0;
   }
 
 }
@@ -102,7 +98,7 @@ class StoryBrain {
 
 
 
-//TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
+//TODO_: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
 
 
 
@@ -115,6 +111,5 @@ class StoryBrain {
 //TODO_ Step 20 - Download the story plan here: https://drive.google.com/uc?export=download&id=1KU6EghkO9Hf2hRM0756xFHgNaZyGCou3
 
 
-//TODO: Step 22 - In nextStory() if the storyNumber is equal to 3 or 4 or 5, that means it's the end of the game and it should call a method called restart() that resets the storyNumber to 0.
 
 //TODO: Step 27 - Create a method called buttonShouldBeVisible() which checks to see if storyNumber is 0 or 1 or 2 (when both buttons should show choices) and return true if that is the case, else it should return false.
